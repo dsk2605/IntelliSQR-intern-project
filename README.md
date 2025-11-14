@@ -1,4 +1,4 @@
-# IntelliSQR Full Stack Internship Assignment
+# IntelliSQR Full Stack Internship Project
 
  This is my submission for the full-stack internship. It's a complete Todo application built from scratch with a React (TypeScript) frontend and a Node.js (TypeScript) backend, as requested in the assignment.
 
