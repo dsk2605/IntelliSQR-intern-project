@@ -1,4 +1,3 @@
-// src/utils/generateToken.ts
 import jwt from 'jsonwebtoken';
 import { Response } from 'express';
 import mongoose from 'mongoose';
@@ -11,17 +10,8 @@ const generateToken = (res: Response, userId: mongoose.Types.ObjectId) => {
   }
 
   const token = jwt.sign({ userId }, secret, {
-    expiresIn: '30d', // Token expires in 30 days
+    expiresIn: '30d', 
   });
-
-  // Note: For a real-world app, setting the cookie to httpOnly,
-  // secure (in production), and sameSite is best practice.
-  // res.cookie('jwt', token, {
-  //   httpOnly: true,
-  //   secure: process.env.NODE_ENV !== 'development',
-  //   sameSite: 'strict',
-  //   maxAge: 30 * 24 * 60 * 60 * 1000, // 30 days
-  // });
 
   return token;
 };

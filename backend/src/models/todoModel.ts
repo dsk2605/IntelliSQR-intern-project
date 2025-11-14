@@ -1,12 +1,10 @@
-// src/models/todoModel.ts
 import mongoose, { Schema, Document, Model } from 'mongoose';
 
-// Interface for Todo document
 export interface ITodo extends Document {
   _id: mongoose.Types.ObjectId;  
-  user: mongoose.Schema.Types.ObjectId; // Reference to the user
+  user: mongoose.Schema.Types.ObjectId; 
   title: string;
-  description?: string; // Optional description
+  description?: string; 
   isCompleted: boolean;
 }
 
@@ -15,7 +13,7 @@ const todoSchema: Schema<ITodo> = new Schema(
     user: {
       type: mongoose.Schema.Types.ObjectId,
       required: true,
-      ref: 'User', // This links it to the User model
+      ref: 'User',
     },
     title: {
       type: String,

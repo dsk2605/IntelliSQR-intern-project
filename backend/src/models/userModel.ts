@@ -1,8 +1,7 @@
-// src/models/userModel.ts
 import mongoose, { Schema, Document, Model } from 'mongoose';
 import bcrypt from 'bcryptjs';
 
-// Interface for User document
+
 export interface IUser extends Document {
   _id: mongoose.Types.ObjectId;  
   name: string;
@@ -33,13 +32,13 @@ const userSchema: Schema<IUser> = new Schema(
     passwordResetExpires: Date,
   },
   {
-    timestamps: true, // Adds createdAt and updatedAt timestamps
+    timestamps: true, 
   }
 );
 
-// Middleware to hash password before saving
+
 userSchema.pre('save', async function (next) {
-  // 'this' refers to the current user document
+
   if (!this.isModified('password')) {
     return next();
   }
@@ -49,7 +48,7 @@ userSchema.pre('save', async function (next) {
   next();
 });
 
-// Method to compare entered password with hashed password
+
 userSchema.methods.matchPassword = async function (enteredPassword: string) {
   return await bcrypt.compare(enteredPassword, this.password);
 };

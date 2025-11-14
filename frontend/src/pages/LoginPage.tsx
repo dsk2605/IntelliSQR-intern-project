@@ -1,4 +1,4 @@
-// src/pages/LoginPage.tsx
+
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useMutation } from '@tanstack/react-query';
@@ -7,9 +7,9 @@ import { loginSchema, type TLoginSchema } from '../lib/schemas';
 import { useAuthStore } from '../store/authStore';
 import api from '../api/apiService';
 import toast from 'react-hot-toast';
-import authStyles from '../components/AuthLayout.module.css'; // Import shared styles
+import authStyles from '../components/AuthLayout.module.css'; 
 
-// ... (keep the AuthResponse interface and loginUser function)
+
 interface AuthResponse {
   _id: string;
   name: string;
@@ -74,7 +74,7 @@ export const LoginPage = () => {
           )}
         </div>
 
-        {/* --- THIS IS THE UPDATED BLOCK --- */}
+
         <div className="form-group">
           <div
             style={{
@@ -104,7 +104,7 @@ export const LoginPage = () => {
             <p className="form-error">{errors.password.message}</p>
           )}
         </div>
-        {/* --- END OF UPDATED BLOCK --- */}
+
 
         <button
           type="submit"

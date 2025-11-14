@@ -1,6 +1,3 @@
-// src/components/AppLogo.tsx
-// We've removed 'import React from 'react';' since it's not needed.
-
 export const AppLogo = () => (
   <svg
     width="48"

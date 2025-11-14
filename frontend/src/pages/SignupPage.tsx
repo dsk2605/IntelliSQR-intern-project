@@ -1,4 +1,3 @@
-// src/pages/SignupPage.tsx
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useMutation } from '@tanstack/react-query';
@@ -6,10 +5,10 @@ import { useNavigate, Link } from 'react-router-dom';
 import { signupSchema, type TSignupSchema } from '../lib/schemas';
 import { useAuthStore } from '../store/authStore';
 import api from '../api/apiService';
-import authStyles from '../components/AuthLayout.module.css'; // Import shared styles
+import authStyles from '../components/AuthLayout.module.css'; 
 import toast from 'react-hot-toast';
 
-// ... (keep the AuthResponse interface and registerUser function)
+
 interface AuthResponse {
   _id: string;
   name: string;

@@ -1,4 +1,3 @@
-// src/pages/ForgotPasswordPage.tsx
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useMutation } from '@tanstack/react-query';
@@ -9,9 +8,9 @@ import {
 } from '../lib/schemas';
 import api from '../api/apiService';
 import authStyles from '../components/AuthLayout.module.css';
-import toast from 'react-hot-toast'; // <-- 1. IMPORT TOAST
+import toast from 'react-hot-toast'; 
 
-// API function
+
 const requestPasswordReset = async (
   data: TForgotPasswordSchema
 ): Promise<{ message: string }> => {
@@ -20,14 +19,12 @@ const requestPasswordReset = async (
 };
 
 export const ForgotPasswordPage = () => {
-  // --- 2. 'successMessage' STATE IS GONE ---
-  // const [successMessage, setSuccessMessage] = useState('');
 
   const {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
-    // --- 3. 'setError' IS GONE ---
+
   } = useForm<TForgotPasswordSchema>({
     resolver: zodResolver(forgotPasswordSchema),
   });
@@ -35,7 +32,7 @@ export const ForgotPasswordPage = () => {
   const mutation = useMutation({
     mutationFn: requestPasswordReset,
     onSuccess: (data) => {
-      // --- 4. USE TOAST INSTEAD OF 'setSuccessMessage' ---
+
       toast.success(
         `${data.message} Check your backend console for the link.`
       );
@@ -43,17 +40,17 @@ export const ForgotPasswordPage = () => {
     onError: (error: any) => {
       const message =
         error.response?.data?.message || 'An error occurred. Please try again.';
-      // --- 5. USE TOAST INSTEAD OF 'setError' ---
+
       toast.error(message);
     },
   });
 
   const onSubmit = (data: TForgotPasswordSchema) => {
-    // setSuccessMessage(''); // <-- This is gone
+
     mutation.mutate(data);
   };
 
-  // --- 6. THIS IS THE SIMPLIFIED RETURN BLOCK ---
+
   return (
     <>
       <h2 className={authStyles.formtitle}>Forgot Password</h2>
@@ -67,8 +64,6 @@ export const ForgotPasswordPage = () => {
         >
           Enter your email and we'll send you a (mock) reset link.
         </p>
-        
-        {/* 'errors.root' JSX is removed */}
 
         <div className="form-group">
           <label htmlFor="email" className="form-label">

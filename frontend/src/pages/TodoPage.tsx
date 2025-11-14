@@ -1,4 +1,3 @@
-// src/pages/TodoPage.tsx
 import {
   useQuery,
   useMutation,
@@ -9,9 +8,9 @@ import styles from './TodoPage.module.css';
 import { useState } from 'react';
 import { CreateTodoModal } from '../components/CreateTodoModal';
 import toast from 'react-hot-toast';
-import { motion, AnimatePresence } from 'framer-motion'; // Import animation tools
+import { motion, AnimatePresence } from 'framer-motion'; 
 
-// --- Types ---
+
 interface ITodo {
   _id: string;
   user: string;
@@ -21,7 +20,7 @@ interface ITodo {
   createdAt: string;
 }
 
-// --- API Functions ---
+
 const getTodos = async (): Promise<ITodo[]> => {
   const { data } = await api.get('/todos');
   return data;
@@ -46,23 +45,23 @@ const deleteTodo = async (id: string): Promise<{ message: string }> => {
   return data;
 };
 
-// --- The Component ---
+
 export const TodoPage = () => {
   const queryClient = useQueryClient();
 
-  // --- State for tracking edits ---
+ 
   const [editingTodoId, setEditingTodoId] = useState<string | null>(null);
   const [editingText, setEditingText] = useState('');
 
-  // --- State for the modal ---
+
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  // --- State for filtering ---
+
   const [filter, setFilter] = useState<'all' | 'active' | 'completed'>(
     'all'
   );
 
-  // --- Data Fetching (useQuery) ---
+
   const {
     data: todos,
     isLoading,
@@ -73,7 +72,7 @@ export const TodoPage = () => {
     queryFn: getTodos,
   });
 
-  // --- Filtering Logic ---
+
   const filteredTodos = todos?.filter((todo) => {
     if (filter === 'active') {
       return !todo.isCompleted;
@@ -81,10 +80,10 @@ export const TodoPage = () => {
     if (filter === 'completed') {
       return todo.isCompleted;
     }
-    return true; // 'all'
+    return true; 
   });
 
-  // --- Data Mutations (useMutation) ---
+
   const invalidateTodos = () => {
     queryClient.invalidateQueries({ queryKey: ['todos'] });
   };
@@ -111,7 +110,7 @@ export const TodoPage = () => {
     },
   });
 
-  // --- Event Handlers ---
+
   const onToggleComplete = (todo: ITodo) => {
     updateTodoMutation.mutate({
       id: todo._id,
@@ -125,7 +124,7 @@ export const TodoPage = () => {
     }
   };
 
-  // --- Event Handlers for Editing ---
+
   const onStartEdit = (todo: ITodo) => {
     setEditingTodoId(todo._id);
     setEditingText(todo.title);
@@ -154,15 +153,13 @@ export const TodoPage = () => {
       }
     );
   };
-  // ------------------------------------
 
-  // --- Render Logic ---
   if (isLoading) return <div>Loading todos...</div>;
   if (isError) return <div>Error: {error.message}</div>;
 
   return (
     <div>
-      {/* 1. Header with Button AND Filters */}
+
       <div
         style={{
           display: 'flex',
@@ -180,7 +177,7 @@ export const TodoPage = () => {
         </button>
       </div>
 
-      {/* --- 2. FILTER BUTTONS --- */}
+
       <div
         style={{
           display: 'flex',
@@ -218,9 +215,7 @@ export const TodoPage = () => {
           Completed
         </button>
       </div>
-      {/* --------------------------- */}
 
-      {/* 3. Todo List with Animations */}
       <ul className={styles.list}>
         <AnimatePresence>
           {filteredTodos && filteredTodos.length > 0 ? (
@@ -237,7 +232,7 @@ export const TodoPage = () => {
                 transition={{ duration: 0.3 }}
               >
                 {editingTodoId === todo._id ? (
-                  // We ARE editing this todo
+
                   <div style={{ width: '100%', display: 'flex', gap: '10px' }}>
                     <input
                       type="text"
@@ -262,7 +257,7 @@ export const TodoPage = () => {
                     </button>
                   </div>
                 ) : (
-                  // We are NOT editing (Normal view)
+
                   <>
                     <div
                       className={
@@ -322,7 +317,7 @@ export const TodoPage = () => {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
             >
-              {/* Show a helpful message */}
+
               {filter === 'all'
                 ? 'No todos found. Add one above!'
                 : `No ${filter} todos found.`}
@@ -331,7 +326,7 @@ export const TodoPage = () => {
         </AnimatePresence>
       </ul>
 
-      {/* 4. Render the modal conditionally with animation */}
+
       <AnimatePresence>
         {isModalOpen && (
           <CreateTodoModal onClose={() => setIsModalOpen(false)} />

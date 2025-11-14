@@ -1,15 +1,14 @@
-// src/pages/ResetPasswordPage.tsx
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useMutation } from '@tanstack/react-query';
-import { useNavigate, useParams } from 'react-router-dom'; // 'Link' is removed
+import { useNavigate, useParams } from 'react-router-dom'; 
 import { resetPasswordSchema, type TResetPasswordSchema } from '../lib/schemas';
 import { useAuthStore } from '../store/authStore';
 import api from '../api/apiService';
 import authStyles from '../components/AuthLayout.module.css';
 import toast from 'react-hot-toast';
 
-// Auth response is the same as login
+
 interface AuthResponse {
   _id: string;
   name: string;
@@ -17,7 +16,7 @@ interface AuthResponse {
   token: string;
 }
 
-// API function
+
 const resetPassword = async (
   data: TResetPasswordSchema & { token: string }
 ): Promise<AuthResponse> => {
@@ -35,7 +34,7 @@ export const ResetPasswordPage = () => {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
-    // --- 'setError' is now removed ---
+
   } = useForm<TResetPasswordSchema>({
     resolver: zodResolver(resetPasswordSchema),
   });
@@ -69,7 +68,7 @@ export const ResetPasswordPage = () => {
     <>
       <h2 className={authStyles.formtitle}>Reset Your Password</h2>
       <form onSubmit={handleSubmit(onSubmit)} noValidate>
-        {/* errors.root is removed, so no JSX needed here */}
+
 
         <div className="form-group">
           <label htmlFor="password" className="form-label">

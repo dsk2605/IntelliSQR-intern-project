@@ -1,21 +1,19 @@
-/* src/components/AuthLayout.module.css */
-
 .authContainer {
   display: grid;
-  /* 55% for the brand panel, 45% for the form */
+
   grid-template-columns: 55fr 45fr; 
   min-height: 100vh;
 }
 
-/* 1. The LEFT "Brand" Panel */
+
 .brandPanel {
   display: flex;
   flex-direction: column;
   justify-content: center;
   padding: 4rem;
-  background-color: #1f2937; /* A slightly lighter dark */
+  background-color: #1f2937; 
   
-  /* This is our "To-Do" theme graphic */
+
   background-image: radial-gradient(
       var(--color-border) 1px,
       transparent 1px
@@ -33,7 +31,7 @@
 }
 
 .brandPanel h1 span {
-  color: var(--color-primary); /* Accent color */
+  color: var(--color-primary); 
 }
 
 .tagline {
@@ -43,7 +41,7 @@
   max-width: 400px;
 }
 
-/* 2. The RIGHT "Form" Panel */
+
 .formPanel {
   display: flex;
   align-items: center;
@@ -81,16 +79,16 @@
   color: var(--color-text-secondary);
 }
 
-/* Make it responsive for smaller screens */
+
 @media (max-width: 900px) {
   .authContainer {
-    grid-template-columns: 1fr; /* Stack them */
+    grid-template-columns: 1fr;
   }
   .brandPanel {
-    display: none; /* Hide the brand panel on mobile */
+    display: none; 
   }
   .formPanel {
-    /* Center the form on mobile */
+    
     min-height: 100vh; 
   }
 }

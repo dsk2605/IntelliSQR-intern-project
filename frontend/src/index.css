@@ -1,31 +1,26 @@
-/* src/index.css */
-
-/* 1. NEW: Modern Dark Color Palette */
 :root {
-  /* Dark background colors */
-  --color-background: #111827; /* Deep, dark blue/gray */
-  --color-card-background: #1f2937; /* Lighter gray for cards */
+
+  --color-background: #111827; 
+  --color-card-background: #1f2937; 
   --color-border: #374151;
 
-  /* Accent color (vibrant purple) */
+
   --color-primary: #8b5cf6;
   --color-primary-hover: #7c3aed;
   
-  /* Text colors */
-  --color-text-primary: #f9fafb; /* Light gray, not pure white */
-  --color-text-secondary: #9ca3af; /* For secondary text */
-
-  /* Other colors */
+ 
+  --color-text-primary: #f9fafb; 
+  --color-text-secondary: #9ca3af; 
   --color-success: #22c55e;
   --color-danger: #ef4444;
   --color-warning: #f59e0b;
 
-  /* Shadows (more subtle on dark mode) */
+  
   --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.15);
   --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.2), 0 2px 4px -2px rgb(0 0 0 / 0.2);
 }
 
-/* 2. Global Reset & Typography */
+
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -41,15 +36,15 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* 3. Global Helper Classes (for forms) */
+
 .form-input {
   width: 100%;
   padding: 12px;
   font-size: 1rem;
   border: 1px solid var(--color-border);
   border-radius: 6px;
-  background-color: var(--color-card-background); /* Dark input */
-  color: var(--color-text-primary); /* White text */
+  background-color: var(--color-card-background); 
+  color: var(--color-text-primary); 
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 .form-input::placeholder {
@@ -58,14 +53,14 @@ body {
 .form-input:focus {
   outline: none;
   border-color: var(--color-primary);
-  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.3); /* Purple shadow */
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.3); 
 }
 
 .form-label {
   display: block;
   margin-bottom: 6px;
   font-weight: 600;
-  color: var(--color-text-secondary); /* Lighter label */
+  color: var(--color-text-secondary); 
 }
 
 .form-error {
@@ -78,7 +73,7 @@ body {
   margin-bottom: 1.25rem;
 }
 
-/* 4. Global Button Styles */
+
 .btn {
   display: inline-block;
   font-weight: 600;

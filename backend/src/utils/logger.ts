@@ -1,11 +1,10 @@
-// src/utils/logger.ts
-import Log from '../models/logModel.js'; // Notice the .js extension!
+import Log from '../models/logModel.js'; 
 
 /**
- * Logs an error to the MongoDB database.
- * @param level - The severity level ('error', 'warn', 'info').
- * @param message - The error message.
- * @param stack - The error stack trace (optional).
+ * 
+ * @param level 
+ * @param message 
+ * @param stack 
  */
 export const logErrorToDB = async (
   level: 'error' | 'warn' | 'info',
@@ -22,7 +21,7 @@ export const logErrorToDB = async (
     await newLog.save();
     console.log('Error logged to DB');
   } catch (dbError) {
-    // If logging to DB fails, log to console to avoid an infinite loop
+
     console.error('CRITICAL: Failed to log error to database.', dbError);
     console.error('Original Error:', { level, message, stack });
   }

@@ -1,6 +1,4 @@
-/* src/pages/TodoPage.module.css */
 
-/* We don't need the form styles, they are in the modal */
 
 .list {
   list-style: none;
@@ -26,7 +24,7 @@
 
 .listItemCompleted {
   composes: listItem;
-  background-color: #1a2230; /* Darker completed state */
+  background-color: #1a2230; 
   border-left: 4px solid var(--color-success);
 }
 
@@ -46,7 +44,7 @@
 
 .todoContentCompleted {
   composes: todoContent;
-  opacity: 0.5; /* Fade out more */
+  opacity: 0.5; 
 }
 
 .todoTitle {
@@ -73,7 +71,7 @@
   margin-left: 1rem;
 }
 
-/* Button variants */
+
 .btnSmall {
   padding: 8px 12px;
   font-size: 0.875rem;
@@ -89,7 +87,7 @@
 }
 
 .btnWarning {
-  color: #111; /* Dark text for warning button */
+  color: #111; 
   background-color: var(--color-warning);
 }
 .btnWarning:hover {

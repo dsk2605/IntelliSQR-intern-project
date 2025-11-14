@@ -1,23 +1,22 @@
 {
   "compilerOptions": {
-    /* Base Options */
-    "target": "ES2022",                     /* Modern ECMAScript target */
-    "module": "NodeNext",                   /* Use "NodeNext" for ESM support */
-    "moduleResolution": "NodeNext",         /* Required with "NodeNext" module */
-    "lib": ["ES2022"],                      /* Standard libraries for ES2022 */
     
-    /* Paths */
-    "rootDir": "./src",                     /* Where your .ts files are */
-    "outDir": "./dist",                     /* Where compiled .js files will go */
+    "target": "ES2022",                    
+    "module": "NodeNext",                   
+    "lib": ["ES2022"],                      
     
-    /* Strictness & Type-Checking */
-    "strict": true,                         /* Enable all strict type-checking options */
-    "esModuleInterop": true,                /* Enables compatibility with CommonJS modules */
-    "forceConsistentCasingInFileNames": true, /* Enforces consistent file casing */
+  
+    "rootDir": "./src",                    
+    "outDir": "./dist",                     
     
-    /* Other */
-    "skipLibCheck": true                    /* Skip type checking of declaration files */
+   
+    "strict": true,                         
+    "esModuleInterop": true,                
+    "forceConsistentCasingInFileNames": true, 
+    
+
+    "skipLibCheck": true                    
   },
-  "include": ["src/**/*"],                  /* Only compile files in the src folder */
-  "exclude": ["node_modules"]               /* Exclude node_modules */
+  "include": ["src/**/*"],                  
+  "exclude": ["node_modules"]               
 }
